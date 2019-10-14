@@ -22,9 +22,9 @@ class imageProcessor:
         mask = cv2.inRange(hsv, (50, 25, 25), (100, 200, 200))
         return mask
 
-    def reduce_noise(self):
+    def reduce_noise(self, image):
         kernel = np.ones((5, 5), np.uint8)
-        mask_opened = cv2.morphologyEx(self.mask, cv2.MORPH_OPEN, kernel)
+        mask_opened = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
         mask_closed = cv2.morphologyEx(mask_opened, cv2.MORPH_CLOSE, kernel)
         return mask_closed
 
@@ -48,7 +48,6 @@ class imageProcessor:
             detector = cv2.SimpleBlobDetector_create(params)
 
         blobs = detector.detect(image)
-
         return blobs
 
     def locate_hands(self, image):

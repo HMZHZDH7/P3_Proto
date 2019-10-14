@@ -7,7 +7,7 @@ while True:
 
     IP = imageProcessor(frame)
     IP.mask = IP.create_mask(frame)
-    IP.frame = IP.reduce_noise()
+    IP.frame = IP.reduce_noise(IP.mask)
     IP.frame = IP.detect_blobs(IP.frame)
     IP.locate_hands(IP.frame)
 
