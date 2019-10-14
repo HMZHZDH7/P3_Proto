@@ -1,14 +1,11 @@
 import cv2
 import numpy as np
+import image_Processor
 
 cap = cv2.VideoCapture(0)
 
 while True:
     ret, frame = cap.read()
-
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-
-    mask = cv2.inRange(hsv, (50, 25, 25), (100, 200, 200))
 
     kernel = np.ones((5, 5), np.uint8)
 
