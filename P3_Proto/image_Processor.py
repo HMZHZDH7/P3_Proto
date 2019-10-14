@@ -26,6 +26,7 @@ class imageProcessor:
         kernel = np.ones((5, 5), np.uint8)
         mask_opened = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
         mask_closed = cv2.morphologyEx(mask_opened, cv2.MORPH_CLOSE, kernel)
+        self.mask = mask_closed
         return mask_closed
 
     def detect_blobs(self, image):
