@@ -38,7 +38,7 @@ while True:
 
     pts = cv2.KeyPoint_convert(Blobs)
 
-    if pts[0, 0] != 0.0:
+    if len(pts) == 2:
         if pts[0, 0] > pts[1, 0]:
             left_hand = pts[0, 0]
             right_hand = pts[1, 0]
