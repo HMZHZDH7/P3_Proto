@@ -9,11 +9,7 @@ while True:
 
     IP = imageProcessor(frame)
     mask = IP.image_to_binary(frame)
-
-    kernel = np.ones((5, 5), np.uint8)
-
-    mask_Opened = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
-    mask_Closed = cv2.morphologyEx(mask_Opened, cv2.MORPH_CLOSE, kernel)
+    mask_Closed = IP.reduce_noise(mask)
 
     # Setup SimpleBlobDetector parameters.
     params = cv2.SimpleBlobDetector_Params()
