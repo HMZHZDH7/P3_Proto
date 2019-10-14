@@ -14,7 +14,5 @@ class imageProcessor:
 
     def image_to_binary(self, image):
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-
         mask = cv2.inRange(hsv, (50, 25, 25), (100, 200, 200))
-
         return mask

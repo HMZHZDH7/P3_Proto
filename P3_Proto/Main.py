@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import help
+from P3_Proto.image_Processor import*
 
 cap = cv2.VideoCapture(0)
 
@@ -8,8 +8,7 @@ while True:
     ret, frame = cap.read()
 
     IP = imageProcessor(frame)
-
-    mask = IP.im
+    mask = IP.image_to_binary(frame)
 
     kernel = np.ones((5, 5), np.uint8)
 
