@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-import image_Processor
+import help
 
 cap = cv2.VideoCapture(0)
 
