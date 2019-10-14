@@ -33,12 +33,12 @@ while True:
     else:
         detector = cv2.SimpleBlobDetector_create(params)
 
-    keypoints = detector.detect(closing)
+    Blobs = detector.detect(closing)
 
-    pts = cv2.KeyPoint_convert(keypoints)
+    pts = cv2.KeyPoint_convert(Blobs)
     print(pts)
 
-    im_with_keypoints = cv2.drawKeypoints(closing, keypoints, np.array([]), (0, 0, 255),
+    im_with_keypoints = cv2.drawKeypoints(closing, Blobs, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
     cv2.imshow('frame', frame)
