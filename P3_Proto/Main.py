@@ -42,8 +42,6 @@ while True:
         if pts[0, 0] > pts[1, 0]:
             left_hand = pts[0, 0]
             right_hand = pts[1, 0]
-
-            print(left_hand, right_hand)
         else:
             left_hand = pts[1, 0]
             right_hand = pts[0, 0]
