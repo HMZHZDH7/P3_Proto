@@ -8,8 +8,8 @@ while True:
     ret, frame = cap.read()
 
     IP = imageProcessor(frame)
-    mask = IP.create_mask(frame)
-    mask_Closed = IP.reduce_noise(mask)
+    IP.binary_Image = IP.create_mask(frame)
+    mask_Closed = IP.reduce_noise(IP.binary_Image)
     bloby_image = IP.detect_blobs(mask_Closed)
     IP.locate_hands(bloby_image)
 

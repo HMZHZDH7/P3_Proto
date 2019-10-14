@@ -10,10 +10,10 @@ class imageProcessor:
     binary_Image = None
 
     def __init__(self, frame):
-        power = 0.0
-        distance = 0.0
-        pos_left_hand = 0.0
-        pos_right_hand = 0.0
+        self.power = 0.0
+        self.distance = 0.0
+        self.pos_left_hand = 0.0
+        self.pos_right_hand = 0.0
         self.binary_Image = frame
 
     def create_mask(self, image):
@@ -51,7 +51,6 @@ class imageProcessor:
 
     def locate_hands(self, image):
         pts = cv2.KeyPoint_convert(image)
-
         if len(pts) == 2:
             if pts[0, 0] > pts[1, 0]:
                 self.pos_left_hand = pts[0, 0]
