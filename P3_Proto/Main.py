@@ -7,6 +7,10 @@ cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
 
+    IP = imageProcessor(frame)
+
+    mask = IP.im
+
     kernel = np.ones((5, 5), np.uint8)
 
     mask_Opened = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
