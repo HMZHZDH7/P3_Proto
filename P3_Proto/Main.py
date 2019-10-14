@@ -12,8 +12,8 @@ while True:
 
     kernel = np.ones((5, 5), np.uint8)
 
-    opening = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
-    closing = cv2.morphologyEx(opening, cv2.MORPH_CLOSE, kernel)
+    mask_Opened = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel)
+    mask_Closed = cv2.morphologyEx(mask_Opened, cv2.MORPH_CLOSE, kernel)
 
     # Setup SimpleBlobDetector parameters.
     params = cv2.SimpleBlobDetector_Params()
@@ -33,7 +33,7 @@ while True:
     else:
         detector = cv2.SimpleBlobDetector_create(params)
 
-    Blobs = detector.detect(closing)
+    Blobs = detector.detect(mask_Closed)
     print(Blobs)
 
     pts = cv2.KeyPoint_convert(Blobs)
@@ -46,7 +46,7 @@ while True:
             left_hand = pts[1, 0]
             right_hand = pts[0, 0]
 
-    im_with_keypoints = cv2.drawKeypoints(closing, Blobs, np.array([]), (0, 0, 255),
+    im_with_keypoints = cv2.drawKeypoints(mask_Closed, Blobs, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
     cv2.imshow('frame', frame)
