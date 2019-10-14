@@ -7,14 +7,15 @@ class imageProcessor:
     distance = 0.0
     pos_left_hand = 0.0
     pos_right_hand = 0.0
-    binary_Image = None
+    frame = None
+    mask = None
 
     def __init__(self, frame):
         self.power = 0.0
         self.distance = 0.0
         self.pos_left_hand = 0.0
         self.pos_right_hand = 0.0
-        self.binary_Image = frame
+        self.frame = frame
 
     def create_mask(self, image):
         hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
@@ -47,6 +48,7 @@ class imageProcessor:
             detector = cv2.SimpleBlobDetector_create(params)
 
         blobs = detector.detect(image)
+
         return blobs
 
     def locate_hands(self, image):
