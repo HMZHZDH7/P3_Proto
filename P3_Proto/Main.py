@@ -37,7 +37,15 @@ while True:
     print(Blobs)
 
     pts = cv2.KeyPoint_convert(Blobs)
-    print(pts[0])
+
+    if pts[0] != 0:
+        if pts[0, 0] > pts[1, 0]:
+            left_hand = pts[0, 0]
+            right_hand = pts[1, 0]
+        else:
+            left_hand = pts[1, 0]
+            right_hand = pts[0, 0]
+
 
     im_with_keypoints = cv2.drawKeypoints(closing, Blobs, np.array([]), (0, 0, 255),
                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
