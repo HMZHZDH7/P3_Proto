@@ -76,7 +76,7 @@ class imageProcessor:
         minValY = min(val_y)
         maxValY = max(val_y)
 
-        dis = maxValY-minValY
+        dis = int(maxValY-minValY)
 
         # speed = dis/time
         # return speed

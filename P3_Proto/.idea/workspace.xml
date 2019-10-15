@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b5abb0f8-1fda-4076-b1a9-803eb851ea18" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image_Processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_Processor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +24,7 @@
   <component name="ProjectId" id="1S0ZDwFoB87Aie7iAslXxaVSSOP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IPMiniProject" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Image.py" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -74,6 +73,14 @@
       <option name="presentableId" value="Default" />
       <updated>1570702357888</updated>
     </task>
+    <task id="LOCAL-00001" summary="Calculated Distance and somewhat speed">
+      <created>1571130854726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571130854726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,5 +95,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Calculated Distance and somewhat speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculated Distance and somewhat speed" />
   </component>
 </project>
