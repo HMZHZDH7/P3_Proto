@@ -5,6 +5,7 @@ import numpy as np
 class imageProcessor:
     power = 0.0
     distance = 0.0
+    pts = None
     pos_left_hand = 0.0
     pos_right_hand = 0.0
     frame = None
@@ -13,6 +14,7 @@ class imageProcessor:
     def __init__(self, frame):
         self.power = 0.0
         self.distance = 0.0
+        self.pts = None
         self.pos_left_hand = 0.0
         self.pos_right_hand = 0.0
         self.frame = frame
@@ -52,11 +54,31 @@ class imageProcessor:
         return blobs
 
     def locate_hands(self, image):
-        pts = cv2.KeyPoint_convert(image)
-        if len(pts) == 2:
-            if pts[0, 0] > pts[1, 0]:
-                self.pos_left_hand = pts[0, 0]
-                self.pos_right_hand = pts[1, 0]
+        self.pts = cv2.KeyPoint_convert(image)
+        if len(self.pts) == 2:
+            if self.pts[0, 0] > self.pts[1, 0]:
+                self.pos_left_hand = self.pts[0, 0]
+                self.pos_right_hand = self.pts[1, 0]
             else:
-                self.pos_left_hand = pts[1, 0]
-                self.pos_right_hand = pts[0, 0]
+                self.pos_left_hand = self.pts[1, 0]
+                self.pos_right_hand = self.pts[0, 0]
+
+    def distance_hands(self):
+        distance = self.pos_left_hand-self.pos_right_hand
+        return distance
+
+    def speed(self):
+        val_y = []
+        for x in range(len(self.pts)):
+            all_val_y = self.pts[x][1]
+            val_y.append(all_val_y)
+
+        minValY = min(val_y)
+        maxValY = max(val_y)
+
+        dis = maxValY-minValY
+
+        # speed = dis/time
+        # return speed
+
+    # def calibrate_hands(self):
