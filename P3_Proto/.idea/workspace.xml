@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5abb0f8-1fda-4076-b1a9-803eb851ea18" name="Default Changelist" comment="">
+    <list default="true" id="b5abb0f8-1fda-4076-b1a9-803eb851ea18" name="Default Changelist" comment="Calculated Distance and somewhat speed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +23,8 @@
   <component name="ProjectId" id="1S0ZDwFoB87Aie7iAslXxaVSSOP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PIMiniProject" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Image.py" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -47,7 +46,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\hziad\Anaconda3\envs\opencv\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\rikke\Anaconda3\envs\opencv\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -73,6 +72,14 @@
       <option name="presentableId" value="Default" />
       <updated>1570702357888</updated>
     </task>
+    <task id="LOCAL-00001" summary="Calculated Distance and somewhat speed">
+      <created>1571130854726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571130854726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +94,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Calculated Distance and somewhat speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Calculated Distance and somewhat speed" />
   </component>
 </project>
