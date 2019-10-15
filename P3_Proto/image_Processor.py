@@ -1,22 +1,20 @@
 import cv2
 import numpy as np
+import math
 
 
 class imageProcessor:
     power = 0.0
     distance = 0.0
     pts = None
-    pos_left_hand = 0.0
-    pos_right_hand = 0.0
+    pos_right_hand = []
+    pos_left_hand = []
+    movement = False
     frame = None
     mask = None
 
     def __init__(self, frame):
-        self.power = 0.0
-        self.distance = 0.0
-        self.pts = None
-        self.pos_left_hand = 0.0
-        self.pos_right_hand = 0.0
+        self.movement = False
         self.frame = frame
 
     def create_mask(self, image):
@@ -57,28 +55,26 @@ class imageProcessor:
         self.pts = cv2.KeyPoint_convert(image)
         if len(self.pts) == 2:
             if self.pts[0, 0] > self.pts[1, 0]:
-                self.pos_left_hand = self.pts[0, 0]
-                self.pos_right_hand = self.pts[1, 0]
+                self.pos_left_hand[0]= self.pts[0, 0]
+                self.pos_left_hand[1] = self.pts[0, 1]
+                self.pos_right_hand[0] = self.pts[1, 0]
+                self.pos_right_hand[1] = self.pts[1, 1]
             else:
-                self.pos_left_hand = self.pts[1, 0]
-                self.pos_right_hand = self.pts[0, 0]
+                self.pos_left_hand[0]= self.pts[1, 0]
+                self.pos_left_hand[1] = self.pts[1, 1]
+                self.pos_right_hand[0] = self.pts[0, 0]
+                self.pos_right_hand[1] = self.pts[0, 1]
 
     def distance_hands(self):
-        distance = self.pos_left_hand-self.pos_right_hand
-        return distance
+        if self.pos_left_hand[1] > self.pos_right_hand[1]:
+            distance_y = self.pos_left_hand[1] - self.pos_right_hand[1]
+        else:
+            distance_y = self.pos_right_hand[1] - self.pos_left_hand[1]
 
-    def speed(self):
-        val_y = []
-        for x in range(len(self.pts)):
-            all_val_y = self.pts[x][1]
-            val_y.append(all_val_y)
+        distance_x = self.pos_left_hand[0] - self.pos_right_hand[0]
 
-        minValY = min(val_y)
-        maxValY = max(val_y)
+        self.distance = math.sqrt((distance_x**2) + (distance_y**2))
 
-        dis = int(maxValY-minValY)
+    # def speed(self):
 
-        # speed = dis/time
-        # return speed
 
-    # def calibrate_hands(self):

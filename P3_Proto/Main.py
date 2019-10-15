@@ -1,4 +1,4 @@
-from image_Processor import *
+from P3_Proto.image_Processor import *
 
 cap = cv2.VideoCapture(0)
 
