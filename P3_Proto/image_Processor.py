@@ -10,12 +10,12 @@ class imageProcessor:
     pts = None
     pos_right_hand = [0, 0]
     pos_left_hand = [0, 0]
+    guitar_string_pos = 0
     movement = False
     frame = None
     mask = None
 
-    def __init__(self, frame):
-        self.movement = False
+    def set_frame(self, frame):
         self.frame = frame
 
     def create_mask(self, image):
@@ -69,7 +69,7 @@ class imageProcessor:
     def calibrate(self):
         self.distance_hands()
         self.distance_init = self.distance
-        print(self.distance, self.distance_init)
+        self.guitar_string_pos = self.pos_right_hand[1]
 
     def distance_hands(self):
         if self.pos_left_hand[1] > self.pos_right_hand[1]:
@@ -81,6 +81,8 @@ class imageProcessor:
 
         self.distance = math.sqrt((distance_x**2) + (distance_y**2))
 
+    def detect_movement(self):
+        if(self.pos_right_hand[1] > (self.guitar_string_pos + 25))or(self.pos_right_hand[1] < (self.guitar_string_pos - 25)):
+            self.movement = True
+
     # def speed(self):
-
-
