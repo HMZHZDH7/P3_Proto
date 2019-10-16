@@ -20,6 +20,7 @@ while True:
     if IP.movement:
         IP.time = time.time()
         IP.speed()
+        IP.movement = False
 
     IP.frame = cv2.drawKeypoints(IP.mask, IP.frame, np.array([]), (0, 0, 255),
                                  cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
