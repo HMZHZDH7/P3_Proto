@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import math
+import time
 
 
 class imageProcessor:
@@ -14,6 +15,7 @@ class imageProcessor:
     movement = False
     frame = None
     mask = None
+    time
 
     def set_frame(self, frame):
         self.frame = frame
@@ -82,7 +84,9 @@ class imageProcessor:
         self.distance = math.sqrt((distance_x**2) + (distance_y**2))
 
     def detect_movement(self):
-        if(self.pos_right_hand[1] > (self.guitar_string_pos + 25))or(self.pos_right_hand[1] < (self.guitar_string_pos - 25)):
+        if(self.pos_right_hand[1] > (self.guitar_string_pos + 75))or(self.pos_right_hand[1] < (self.guitar_string_pos - 75)):
             self.movement = True
 
-    # def speed(self):
+    def speed(self):
+        self.power = 75 / self.time
+        print(self.power)

@@ -3,6 +3,7 @@ from P3_Proto.image_Processor import *
 IP = imageProcessor()
 cap = cv2.VideoCapture(0)
 
+
 while True:
     ret, frame = cap.read()
 
@@ -16,8 +17,9 @@ while True:
         if IP.distance_init == 0.0:
             IP.calibrate()
     IP.detect_movement()
-    # if IP.movement == True:
-
+    if IP.movement:
+        IP.time = time.time()
+        IP.speed()
 
     IP.frame = cv2.drawKeypoints(IP.mask, IP.frame, np.array([]), (0, 0, 255),
                                  cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
