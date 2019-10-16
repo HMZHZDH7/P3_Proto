@@ -6,6 +6,7 @@ import math
 class imageProcessor:
     power = 0.0
     distance = 0.0
+    distance_init = 0.0
     pts = None
     pos_right_hand = [0, 0]
     pos_left_hand = [0, 0]
@@ -59,15 +60,16 @@ class imageProcessor:
                 self.pos_left_hand[1] = self.pts[0, 1]
                 self.pos_right_hand[0] = self.pts[1, 0]
                 self.pos_right_hand[1] = self.pts[1, 1]
-                print(self.pos_right_hand)
-                print(self.pos_left_hand)
             else:
                 self.pos_left_hand[0] = self.pts[1, 0]
                 self.pos_left_hand[1] = self.pts[1, 1]
                 self.pos_right_hand[0] = self.pts[0, 0]
                 self.pos_right_hand[1] = self.pts[0, 1]
-                print(self.pos_right_hand)
-                print(self.pos_left_hand)
+
+    def calibrate(self):
+        self.distance_hands()
+        self.distance_init = self.distance
+        print(self.distance, self.distance_init)
 
     def distance_hands(self):
         if self.pos_left_hand[1] > self.pos_right_hand[1]:
@@ -78,7 +80,6 @@ class imageProcessor:
         distance_x = self.pos_left_hand[0] - self.pos_right_hand[0]
 
         self.distance = math.sqrt((distance_x**2) + (distance_y**2))
-        print(self.distance)
 
     # def speed(self):
 

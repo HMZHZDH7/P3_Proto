@@ -12,6 +12,8 @@ while True:
     IP.locate_hands(IP.frame)
     if len(IP.pts) == 2:
         IP.distance_hands()
+        if IP.distance_init == 0.0:
+            IP.calibrate()
 
     IP.frame = cv2.drawKeypoints(IP.mask, IP.frame, np.array([]), (0, 0, 255),
                                  cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
