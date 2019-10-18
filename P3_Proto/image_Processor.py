@@ -18,8 +18,8 @@ class imageProcessor:
     time = 0.0
     numb_of_frames = 0.0
     origin_point = 0.0
-    speed = 0.0
-    
+    speed_right_hand = 0.0
+
     def set_frame(self, frame):
         self.frame = frame
 
@@ -97,15 +97,15 @@ class imageProcessor:
 
                 if self.origin_point > self.pos_right_hand[1]:
                     distance_speed = self.origin_point-self.pos_right_hand[1]
-                    speed = distance_speed/1
+                    self.speed_right_hand = distance_speed/1
                     self.origin_point = self.pos_right_hand[1]
                     self.numb_of_frames = 0.0
-                    print(speed)
+                    print(self.speed_right_hand)
                 else:
                     distance_speed = self.pos_right_hand[1]-self.origin_point
-                    speed = distance_speed / 1
+                    self.speed_right_hand = distance_speed / 1
                     self.origin_point = self.pos_right_hand[1]
                     self.numb_of_frames = 0.0
-                    print(speed)
+                    print(self.speed_right_hand)
         else:
             self.numb_of_frames += 1
