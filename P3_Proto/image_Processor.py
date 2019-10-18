@@ -15,8 +15,10 @@ class imageProcessor:
     movement = False
     frame = None
     mask = None
-    time
-
+    time = 0.0
+    numb_of_frames = 0.0
+    origin_point = 0.0
+    speed = 0.0
     def set_frame(self, frame):
         self.frame = frame
 
@@ -87,6 +89,21 @@ class imageProcessor:
         if(self.pos_right_hand[1] > (self.guitar_string_pos + 75))or(self.pos_right_hand[1] < (self.guitar_string_pos - 75)):
             self.movement = True
 
-    def speed(self):
+    def speed(self, capture):
         self.power = 75 / self.time
-        print(self.power)
+        if self.numb_of_frames == capture.get(cv2.CAP_PROP_FPS):
+
+            if self.origin_point != self.pos_right_hand[1]:
+
+                if self.origin_point > self.pos_right_hand[1]:
+                    distance_speed = self.origin_point-self.pos_right_hand[1]
+                    speed = distance_speed/1
+                    self.origin_point = self.pos_right_hand[1]
+                    self.numb_of_frames = 0.0
+                else:
+                    distance_speed = self.pos_right_hand[1]-self.origin_point
+                    speed = distance_speed / 1
+                    self.origin_point = self.pos_right_hand[1]
+                    self.numb_of_frames = 0.0
+        else:
+            self.numb_of_frames += 1

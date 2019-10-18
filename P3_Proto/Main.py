@@ -1,4 +1,4 @@
-from P3_Proto.image_Processor import *
+from image_Processor import *
 
 IP = imageProcessor()
 cap = cv2.VideoCapture(0)
